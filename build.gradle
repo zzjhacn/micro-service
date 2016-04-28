@@ -1,0 +1,15 @@
+allprojects {
+	apply plugin: 'java'
+	/*apply plugin: 'eclipse'*/
+	/*apply plugin: 'maven'*/
+
+	sourceCompatibility = 1.8
+	targetCompatibility = 1.8
+	version = '1.0.00-SNAPSHOT'
+}
+group = 'com.bricks'
+[compileJava, compileTestJava, javadoc]*.options*.encoding = "UTF-8"
+/*configure(subprojects.findAll {it.name.contains('war')}) {*/
+configure(subprojects.findAll {}) {
+	group = 'com.bricks.'+it.parent.name
+}
